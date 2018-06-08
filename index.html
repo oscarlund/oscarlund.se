@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Music by Oscar Lund</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="scripts/perspective.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="container pink-gradient">
+      <div class="bkg">
+        <div class="header-text">
+          <h2>OSCAR LUND</h2>
+          <h1>JAG LOVADE ATT SJUNGA FÖR DIG</h1>
+        </div>
+        <div class="cover-container">
+          <div id="container" class="album-cover">
+            <div id="inner" class="inner">
+              <img src="images/album-cover.jpg"/>
+            </div>
+          </div>
+        </div>
+        <div class="social-media-container">
+          <div class="fb">
+            <img class="svg" src="images/facebook.svg" />
+          </div>
+          <div class="soundcloud">
+            <img src="images/soundcloud.svg" />
+          </div>
+          <div class="youtube">
+            <img src="images/youtube-black.svg" />
+          </div>
+          <div class="insta">
+            <img src="images/instagram-black.svg" />
+          </div>
+        </div>
+        <div class="contact">
+          <a href="mailto:contact@oscarlund.com">
+            kontakt@oscarlund.se
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-nav">
+      <div class="footer-nav-content">
+        <iframe class="soundcloud-song" width="100%" height="115" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/455545020%3Fsecret_token%3Ds-arpAw&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+      </div>
+    </div>
+    <script>
+    (function() {
+      // Init
+      var container = document.getElementById("container"),
+        inner = document.getElementById("inner");
+
+      // Mouse
+      var mouse = {
+        _x: 0,
+        _y: 0,
+        x: 0,
+        y: 0,
+        updatePosition: function(event) {
+          var e = event || window.event;
+          this.x = e.clientX - this._x;
+          this.y = (e.clientY - this._y) * -1;
+        },
+        setOrigin: function(e) {
+          this._x = e.offsetLeft + Math.floor(e.offsetWidth / 2);
+          this._y = e.offsetTop + Math.floor(e.offsetHeight / 2);
+        },
+        show: function() {
+          return "(" + this.x + ", " + this.y + ")";
+        }
+      };
+
+      // Track the mouse position relative to the center of the container.
+      mouse.setOrigin(container);
+
+      //-----------------------------------------
+
+      var counter = 0;
+      var updateRate = 10;
+      var isTimeToUpdate = function() {
+        return counter++ % updateRate === 0;
+      };
+
+      //-----------------------------------------
+
+      var onMouseEnterHandler = function(event) {
+        update(event);
+      };
+
+      var onMouseLeaveHandler = function() {
+        inner.style = "";
+      };
+
+      var onMouseMoveHandler = function(event) {
+        if (isTimeToUpdate()) {
+          update(event);
+        }
+      };
+
+      //-----------------------------------------
+
+      var update = function(event) {
+        mouse.updatePosition(event);
+        updateTransformStyle(
+          (mouse.y / inner.offsetHeight / 2).toFixed(2),
+          (mouse.x / inner.offsetWidth / 2).toFixed(2)
+        );
+      };
+
+      var updateTransformStyle = function(x, y) {
+        var style = "rotateX(" + x + "deg) rotateY(" + y + "deg)";
+        inner.style.transform = style;
+        inner.style.webkitTransform = style;
+        inner.style.mozTransform = style;
+        inner.style.msTransform = style;
+        inner.style.oTransform = style;
+      };
+
+      //-----------------------------------------
+
+      container.onmouseenter = onMouseEnterHandler;
+      container.onmouseleave = onMouseLeaveHandler;
+      container.onmousemove = onMouseMoveHandler;
+    })();
+
+     //Replace all SVG images with inline SVG
+
+    jQuery('img.svg').each(function(){
+        var $img = jQuery(this);
+        var imgID = $img.attr('id');
+        var imgClass = $img.attr('class');
+        var imgURL = $img.attr('src');
+
+        jQuery.get(imgURL, function(data) {
+            // Get the SVG tag, ignore the rest
+            var $svg = jQuery(data).find('svg');
+
+            // Add replaced image's ID to the new SVG
+            if(typeof imgID !== 'undefined') {
+                $svg = $svg.attr('id', imgID);
+            }
+            // Add replaced image's classes to the new SVG
+            if(typeof imgClass !== 'undefined') {
+                $svg = $svg.attr('class', imgClass+' replaced-svg');
+            }
+
+            // Remove any invalid XML tags as per http://validator.w3.org
+            $svg = $svg.removeAttr('xmlns:a');
+
+            // Check if the viewport is set, if the viewport is not set the SVG wont't scale.
+            if(!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
+                $svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
+            }
+
+            // Replace image with new SVG
+            $img.replaceWith($svg);
+
+        }, 'xml');
+
+    });
+    </script>
+
+  </body>
+</html>

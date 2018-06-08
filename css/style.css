@@ -1,0 +1,212 @@
+html, body {
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+  font-family: 'Nunito Sans','Avenir', 'Arial';
+  overflow-x:hidden;
+}
+
+h1{
+  font-weight: 700;
+  font-size: 36px;
+  letter-spacing: 3.5px;
+  color:#026664;
+  margin: 12px 0 45px;
+}
+
+h2{
+  font-weight: 600;
+  font-style: italic;
+  font-size:22px;
+  letter-spacing: 3.5px;
+  color:#6C9C9B;
+}
+.container {
+  width:100%;
+  height:auto;
+}
+
+.pink-gradient {
+  background: #EDE0E7;
+  background-image: radial-gradient(#EDE0E7, #FDF7FA);
+}
+
+.bkg {
+  background-image: url(../images/oscar-bkg.png);
+  width:calc(100% - 20px);
+  height:calc(100vh - 160px);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border:solid 10px #fff;
+  overflow:hidden;
+}
+
+.header-text {
+  margin:0;
+  text-align: center;
+  z-index: 3;
+  padding:0 20px;
+}
+
+.cover-container {
+  background:rgba(237,224,231,0.45);
+  width:550px;
+  height:550px;
+  margin-top:-100px;
+  z-index:1;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.album-cover {
+  background:rgba(237,224,231,1);
+  width:500px;
+  height:500px;
+  z-index:2;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+#container {
+  perspective: 40px;
+}
+
+#inner {
+  width: 25em;
+  height: 25em;
+  background-color: white;
+  box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+  transform: rotateX(0.01deg) rotateY(-0.46deg);
+}
+
+.album-cover > #inner > img {
+  width:100%;
+  height:auto;
+  box-shadow: 0 32px 70px rgba(0,0,0,0.15);
+}
+
+.social-media-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background:rgba(0,0,0,0.1);
+  padding:10px 0 5px;
+  border-radius: 5px;
+}
+
+.social-media-container > div > img {
+  height:25px;
+  margin:0 20px;
+  transition: all 0.12s ease-in-out;
+  cursor: pointer;
+  fill:red;
+}
+
+svg {width: 350px; height: 350px;}
+svg path {fill: red !important;}
+
+.social-media-container > div > img:hover {
+  opacity: 0.8;
+}
+
+.contact {
+  margin-top:10px;
+}
+
+.contact > a {
+  color:#686868;
+  font-weight:500;
+  font-style: italic;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.contact > a:hover {
+  opacity:0.8;
+}
+
+.footer-nav {
+  position: fixed;
+  bottom:0;
+  z-index: 999;
+  width:100%;
+  height:160px;
+  background:#fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /*box-shadow: 0 -1px 10px rgba(0,0,0,0.1);*/
+  border: solid 1px #dddddd;
+}
+
+.footer-nav-content {
+  display: flex;
+  flex-direction: row;
+  max-width: 1140px;
+}
+
+.play-btn {
+  margin-left:20px;
+}
+
+.playback{
+  display: flex;
+  flex-direction: row;
+  margin:0 20px;
+  align-items: center;
+}
+
+.song-info {
+  margin:0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: 500;
+  color: #585858;
+}
+
+.play-bar{
+  width:500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin:0 20px;
+}
+
+.bar-under{
+  width:100%;
+  height:10px;
+  background:#F3F3F3;
+  border-radius: 5px;
+}
+
+.bar-over{
+  position: absolute;
+  width:20%;
+  height:10px;
+  background:#5B5B5B;
+  border-radius: 5px;
+}
+
+.soundcloud-song{
+  align-self:center;
+  width:600px;
+}
+
+@media screen and (max-width: 900px) {
+  .bkg {
+    background-image: none;
+  }
+}
