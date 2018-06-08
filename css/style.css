@@ -114,7 +114,6 @@ h2{
   fill:red;
 }
 
-svg {width: 350px; height: 350px;}
 svg path {fill: red !important;}
 
 .social-media-container > div > img:hover {
