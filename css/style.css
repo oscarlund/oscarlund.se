@@ -111,10 +111,11 @@ h2{
   margin:0 20px;
   transition: all 0.12s ease-in-out;
   cursor: pointer;
-  fill:red;
 }
 
-svg path {fill: red !important;}
+svg {width: 24px; height: 24px;}
+svg path {fill: #000 !important;}
+svg path:hover {fill: blue !important;}
 
 .social-media-container > div > img:hover {
   opacity: 0.8;
