@@ -115,7 +115,7 @@ h2{
 
 svg {width: 24px; height: 24px;}
 svg path {fill: #000 !important;}
-svg path:hover {fill: blue !important;}
+.fb > svg path:hover {fill: blue !important;}
 
 .social-media-container > div > img:hover {
   opacity: 0.8;
