@@ -113,12 +113,11 @@ h2{
   cursor: pointer;
 }
 
-svg {margin:0 20px; width: 24px; height: 24px; cursor: pointer; transition: all 0.12s ease-in-out;}
-svg path {fill: #000 !important;}
-.fb > svg:hover ~ svg path{fill: #3B5998 !important;}
-.soundcloud > svg:hover {fill: #ff7700 !important;}
-.instagram > svg path:hover {fill: #C21975 !important;}
-.youtube > svg path:hover {fill: #ff0000 !important;}
+svg {margin:0 20px; width: 24px; height: 24px; cursor: pointer; transition: all 0.12s ease-in-out; fill: #000;}
+.fb > svg:hover {fill: #3B5998;}
+.soundcloud > svg:hover {fill: #ff7700;}
+.instagram > svg path:hover {transition: all ease 0.3s; fill: #C21975;}
+.youtube > svg path:hover {transition: all ease 0.3s; fill: #ff0000;}
 
 .social-media-container > div > img:hover {
   opacity: 0.8;
