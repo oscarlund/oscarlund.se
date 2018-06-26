@@ -87,6 +87,9 @@ h2{
 .menu-close > a:hover {
   color: #e7bfc1;
 }
+.menu-close > a:focus, a:active {
+  color: #000;
+}
 .menu-close > a {
   font-size: 30px;
 }
@@ -137,6 +140,8 @@ li:hover {
 
 a {
   cursor: pointer;
+  color: #000;
+  text-decoration: none;
 }
 
 .container {
@@ -148,6 +153,7 @@ a {
   background: #EDE0E7;
   background-image: radial-gradient(#EDE0E7, #FDF7FA);
   background-image: linear-gradient(#e7bfc1, #e5cbce);
+  background-image: linear-gradient(#ea9ea1,#ffd4d9);
 }
 
 .bkg {
@@ -411,7 +417,7 @@ p.small {
 /* controls */
 .sc-player .sc-controls {
   display: block;
-  z-index: 999;
+  z-index: 998;
   position: absolute;
   top: calc(50% - 5px);
   left: calc(50% - 45px);
