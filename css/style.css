@@ -6,7 +6,7 @@ html, body {
   font-family: 'Montserrat', sans-serif;
   font-family: "futura-pt",sans-serif;
   overflow-x:hidden;
-  color:#1d1d1d;
+  color:#181818;
 }
 
 h1{
@@ -45,7 +45,15 @@ h2{
   align-items: center;
   justify-content: center;
 }
-
+.frame{
+  z-index:10;
+  position:fixed;
+  border: 44px solid #fff;
+  width:100%;
+  height:100%;
+  bottom: 0px;
+  right: 0px;
+}
 .side-date {
   width: 100%;
   height: 44px;
@@ -88,9 +96,10 @@ h2{
 }
 .menu-close > a:hover {
   color: #e7bfc1;
+  color:#FF9A30;
 }
 .menu-close > a:focus, a:active {
-  color: #000;
+  color: #181818;
 }
 .menu-close > a {
   font-size: 30px;
@@ -119,8 +128,8 @@ h2{
 }
 
 .menu-toggle > a:hover {
-  color:#ea9ea1;
-  border-color: #ea9ea1;
+  color:#FF9A30;
+  border-color: #FF9A30;
 }
 
 ul {
@@ -140,11 +149,12 @@ li:hover {
   color: #e7bfc1;
   color: #ea9ea1;
   color:#f34;
+  color:#FF9A30;
 }
 
 a {
   cursor: pointer;
-  color: #000;
+  color: #181818;
   text-decoration: none;
 }
 
@@ -159,15 +169,17 @@ a {
   background-image: linear-gradient(#e7bfc1, #e5cbce);
   background-image: linear-gradient(#ea9ea1,#ffd4d9);
   background:#f34;
+  background:#FF9A30;
 }
 
 .bkg {
   /*background-image: url(../images/6.png);*/
   /*background-image: url(../images/oscar-bkg.png);*/
+  /*background-image: url(../images/oscarpage.jpg);*/
   width:calc(100% - 88px);
   height:calc(100vh - 88px);
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   display: flex;
   flex-direction: column;
@@ -175,6 +187,10 @@ a {
   justify-content: center;
   border:solid 44px #fff;
   overflow:hidden;
+}
+
+.album-cover{
+  background-image: url(../images/oscarpage2.jpg);
 }
 
 .header-text {
@@ -195,15 +211,24 @@ a {
   justify-content: center;
 }
 
-.album-cover {
-  background:rgba(237,224,231,1);
-  width:450px;
-  height:450px;
-  z-index:2;
+.album-frame {
   display:flex;
+  width:100%;
+  height:100%;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  position: fixed; 
+}
+.album-cover {
+  background-size: cover;
+  width: 450px;
+  height: 450px;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
 }
 
 #container {
@@ -269,7 +294,7 @@ svg {margin:0 20px; width: 24px; height: 24px; cursor: pointer; transition: all 
 }
 
 .contact > a {
-  color:#1d1d1d;
+  color:#181818;
   font-weight:500;
   font-style: italic;
   text-decoration: none;
@@ -318,7 +343,7 @@ svg {margin:0 20px; width: 24px; height: 24px; cursor: pointer; transition: all 
   flex-direction: column;
   justify-content: center;
   font-weight: 500;
-  color: #1d1d1d;
+  color: #181818;
 }
 
 .play-bar{
@@ -340,7 +365,7 @@ svg {margin:0 20px; width: 24px; height: 24px; cursor: pointer; transition: all 
   position: absolute;
   width:20%;
   height:10px;
-  background:#1d1d1d;
+  background:#181818;
   border-radius: 5px;
 }
 
