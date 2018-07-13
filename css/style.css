@@ -692,7 +692,7 @@ p {
 
 @media screen and (max-width: 650px) {
   .album-cover {
-    width: 280px;
-    height: 280px;
+    width: 220px;
+    height: 220px;
   }
 }
